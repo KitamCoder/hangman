@@ -3,7 +3,7 @@ const image = document.getElementById("top__image"),
     gameStateText = document.getElementById("game_state"),
     input = document.getElementById("input"),
     checkButton = document.getElementById("check");
-const words = ["яблоко", "машина", "дом"];
+const words = ["яблоко", "машина", "дом", "ястреб", "авиашкола", "любовь", "землекоп", "август", "жакет", "жара", "пиротехника", "овощ"];
 let attempts = 1,
     gameState = [],
     usedLetters = [],
@@ -26,7 +26,7 @@ function checkLetter() {
     } else {
         if (answer.includes(input.value.toLowerCase())) {
             for (let i = 0; i < answer.length; i++)
-                if (answer[i] === input.value.toLowerCase()) gameState[i] = input.value;
+                if (answer[i] === input.value.toLowerCase()) gameState[i] = input.value.toLowerCase();
             gameStateText.innerHTML = gameState.join(" ");
             usedLetters.push(input.value.toLowerCase());
             input.value = "";
