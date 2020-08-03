@@ -2,16 +2,27 @@
 const image = document.getElementById("top__image"),
     gameStateText = document.getElementById("game_state"),
     input = document.getElementById("input"),
-    checkButton = document.getElementById("check");
+    checkButton = document.getElementById("check"),
+    restartButton = document.getElementById("restart");
 const words = ["яблоко", "машина", "дом", "ястреб", "авиашкола", "любовь", "землекоп", "август", "жакет", "жара", "пиротехника", "овощ"];
-let attempts = 1,
-    gameState = [],
-    usedLetters = [],
+
+let attempts, gameState, usedLetters, answer;
+
+// Функция для инициализации игры
+function gameInit() {
+    // Сброс всех переменных
+    attempts = 1;
+    gameState = [];
+    usedLetters = [];
     answer = words[Math.floor(Math.random() * Math.floor(words.length))].split("");
 
-// Вывод начального состояния игры на экран
-for (let i = 0; i < answer.length; i++) gameState.push("_");
-gameStateText.innerHTML = gameState.join(" ");
+    // Вывод начального состояния игры на экран
+    for (let i = 0; i < answer.length; i++) gameState.push("_");
+    gameStateText.innerHTML = gameState.join(" ");
+
+    //Сброс картинки
+    image.src = "";
+}
 
 // Функция для проверки, присутствует ли введенная буква в слове
 function checkLetter() {
@@ -33,10 +44,13 @@ function checkLetter() {
 
             // Проверка на то, не угадали ли слово
             if (answer.join("") === gameState.join("")) {
-                alert("Вы выиграли!");
+                input.setAttribute("readonly", "true");
+                input.setAttribute("placeholder", "Вы выиграли!");
+                checkButton.setAttribute("disabled", "true");
+                restartButton.style = "display: block;";
             }
         } else {
-            // Сюда нужно будет вписать код для обновления картинки
+            //Обновление картинки
             image.src = `img/${attempts}.png`;
             attempts++;
             usedLetters.push(input.value.toLowerCase());
@@ -44,8 +58,24 @@ function checkLetter() {
 
             // Проверка на то, не зокончились ли попытки
             if (attempts > 10) {
-                alert("Вы проиграли!");
+                input.setAttribute("readonly", "true");
+                input.setAttribute("placeholder", "Вы проиграли!");
+                checkButton.setAttribute("disabled", "true");
+                restartButton.style = "display: block;";
             }
         }
     }
 }
+
+// Функция для перезапуска игры
+function restartGame() {
+    input.removeAttribute("readonly");
+    input.setAttribute("placeholder", "Введите букву");
+    checkButton.removeAttribute("disabled");
+    restartButton.style = "display: none;";
+
+    gameInit();
+}
+
+// Запуск игры
+gameInit();

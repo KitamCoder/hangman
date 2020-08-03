@@ -25,6 +25,10 @@
     height: 100%;
 }
 
+#game_state {
+    font-size: 30px;
+}
+
 #input {
     border-radius: 10px;
     margin-bottom: 30px;
@@ -36,8 +40,10 @@
 #check {
     border-radius: 10px;
     border: rgb(66, 66, 66) solid 4px;
+    margin-bottom: 10px;
 }
 
-#game_state {
-    font-size: 30px;
+#restart {
+    border-radius: 10px;
+    border: rgb(66, 66, 66) solid 4px;
 }
