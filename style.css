@@ -3,12 +3,20 @@
     font-family: 'Caveat', cursive;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("img/background.jpg");
+}
+
 #game {
     border-radius: 10px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     height: 500px;
     border: rgb(66, 66, 66) solid 5px;
 }
@@ -39,11 +47,49 @@
 
 #check {
     border-radius: 10px;
+    background-color: white;
     border: rgb(66, 66, 66) solid 4px;
     margin-bottom: 10px;
+    transition: background-color 0.2s;
+}
+
+#check:hover {
+    cursor: pointer;
+    background-color: rgb(216, 216, 216);
 }
 
 #restart {
     border-radius: 10px;
     border: rgb(66, 66, 66) solid 4px;
+}
+
+#rules {
+    text-align: center;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 50%;
+    background-color: white;
+    margin-top: 10px;
+    border: rgb(66, 66, 66) solid 5px;
+}
+
+#rules__header {
+    background-color: white;
+    border-radius: 10px;
+    border-bottom: rgb(66, 66, 66) solid 5px;
+    /* transition: background-color 0.2s; */
+}
+
+
+/* #rules__header:hover {
+    cursor: pointer;
+    background-color: rgb(216, 216, 216);
+} */
+
+#rules__text {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: opacity 1s;
 }
