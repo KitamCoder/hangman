@@ -78,18 +78,10 @@ body {
     background-color: white;
     border-radius: 10px;
     border-bottom: rgb(66, 66, 66) solid 5px;
-    /* transition: background-color 0.2s; */
 }
 
-
-/* #rules__header:hover {
-    cursor: pointer;
-    background-color: rgb(216, 216, 216);
-} */
-
 #rules__text {
+    border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
-    border-radius: 10px;
-    transition: opacity 1s;
 }
